@@ -1,0 +1,60 @@
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(0.5rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #0f172a; /* slate-900 */
+  --color-soft: #ffe0a4;
+  --color-primary: #c87d0c;
+  --color-secondary: #f9bd4b;
+}
+
+.dark {
+  --color-bg: #000000;
+  --color-text: #ffffff;
+  --color-soft: #0b0b0b;
+  --color-primary: #108eca; /* accent in dark */
+  --color-secondary: #22d3ee; /* cyan-400 hover */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@layer base {
+  body {
+    /* Base typography and page background */
+    @apply font-sans text-[var(--color-text)];
+    background-color: var(--color-bg);
+    /* Page uses solid/gradient backgrounds; section components can set their own images */
+  }
+}
+
+@layer utilities {
+  .container-responsive {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  .perspective-1000 { perspective: 1000px; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors;
+    background-color: var(--color-primary);
+    color: white;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-secondary);
+  }
+
+  .card-surface {
+    @apply rounded-xl shadow-card border border-black/5 dark:border-white/10;
+    background-color: var(--color-soft);
+  }
+}
