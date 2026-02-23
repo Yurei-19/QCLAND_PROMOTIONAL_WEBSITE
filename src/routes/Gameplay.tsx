@@ -28,7 +28,7 @@ export default function Gameplay() {
             />
           )
         })()}
-        {/* Removed caption below the video to avoid cropping and reclaim space */}
+        {/* Caption intentionally omitted to avoid cropping and reduce vertical space */}
       </div>
 
       <div className="mt-10 grid gap-6 md:grid-cols-3">
@@ -39,13 +39,14 @@ export default function Gameplay() {
 
       <div className="mt-12 rounded-xl bg-[var(--color-primary)] p-8 text-center text-white shadow-card">
         <h3 className="text-2xl font-extrabold">Ready to Defend the Network?</h3>
-        {/* redirect play triggers to maintenance page */}
+        {/* Play button uses a full-page redirect to the hosted build */}
         <button
           className="btn-primary mt-4 bg-white !text-slate-900 hover:bg-brand-secondary"
           onClick={() => {
-            // use client-side navigation to maintenance
-            window.history.pushState({}, '', '/maintenance')
-            window.dispatchEvent(new PopStateEvent('popstate'))
+            // Optional: SPA navigation to /maintenance (kept for reference)
+            // window.history.pushState({}, '', '/maintenance')
+            // window.dispatchEvent(new PopStateEvent('popstate'))
+            window.location.href = 'https://qculand.web.app/'
           }}
         >
           Play in Browser

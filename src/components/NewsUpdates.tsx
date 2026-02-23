@@ -4,8 +4,10 @@ import { news } from '../data/news'
 export function NewsUpdates() {
   const base = (import.meta as any).env?.BASE_URL || '/'
   const withBase = (p?: string) => (p ? `${(base.endsWith('/') ? base : base + '/')}${p.replace(/^\//,'')}` : undefined)
-  // feature the Capstone announcement explicitly
-  const featured = news.find(n => n.slug === 'capstone-defense-schedule-announcement') ?? news[0]
+  // feature the latest news item, and list a few more below
+  const sorted = [...news].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const featured = sorted[0]
+  const others = sorted.slice(1, 4)
   return (
     <section className="container-responsive py-12">
       <div className="mb-6 flex items-center justify-between">
@@ -35,6 +37,20 @@ export function NewsUpdates() {
             </div>
           </div>
         </article>
+      )}
+      {others.length > 0 && (
+        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {others.map((n) => (
+            <a key={n.slug} href={`/news/${n.slug}`} className="group rounded-xl border border-black/10 bg-white p-4 shadow-sm transition-colors hover:bg-white/90 dark:border-white/10 dark:bg-black/60 dark:hover:bg-black/50">
+              <div className="flex items-center justify-between">
+                <span className="inline-flex items-center rounded-full bg-black/5 px-2 py-1 text-xs ring-1 ring-black/10 dark:bg-white/10 dark:ring-white/20">{n.category}</span>
+                <time className="text-xs opacity-70">{new Date(n.date).toLocaleDateString()}</time>
+              </div>
+              <h4 className="mt-2 text-base font-bold group-hover:text-[var(--color-primary)]">{n.title}</h4>
+              <p className="mt-1 text-sm opacity-80 line-clamp-3">{n.summary}</p>
+            </a>
+          ))}
+        </div>
       )}
     </section>
   )

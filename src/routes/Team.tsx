@@ -20,7 +20,7 @@ export default function Team() {
         {sorted.map((m) => (
           <TeamCard key={m.name} member={m} />
         ))}
-      </div>
+      </div> 
     </main>
   )
 }

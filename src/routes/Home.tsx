@@ -38,7 +38,7 @@ export default function Home() {
                 const cleaned = p.replace(/^\//,'').replace(/\s/g, '%20')
                 return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
               }
-              return `url(${withBase('/qculandmap.jpeg')})`
+              return `url(${withBase('/V4 Map.png')})`
             })(),
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -79,7 +79,7 @@ export default function Home() {
                   const cleaned = p.replace(/^\//,'').replace(/\s/g, '%20')
                   return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
                 }
-                return withBase('/qculandmap.jpeg')
+                return withBase('/V4 Map.png')
               })()}
               alt="QCU Land full map"
               className="w-full rounded-xl object-contain"

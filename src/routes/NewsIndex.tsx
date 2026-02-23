@@ -8,7 +8,7 @@ export default function NewsIndex() {
     <main className="container-responsive py-12">
       <SectionHeading title="News & Updates" subtitle="Patch notes, announcements, and events." />
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {news.map((n) => (
+        {[...news].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((n) => (
           <NewsCard key={n.slug} item={n} />
         ))}
       </div>

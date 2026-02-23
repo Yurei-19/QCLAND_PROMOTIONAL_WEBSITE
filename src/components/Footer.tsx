@@ -40,13 +40,13 @@ export function Footer() {
             <div className="ml-auto md:ml-0 md:justify-self-end">
               <p className="text-sm font-semibold text-[var(--color-primary)] md:text-right">Socials</p>
               <div className="mt-3 flex flex-col items-start md:items-end gap-3">
-                <a href="#" aria-label="Facebook" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white hover:bg-black/50">
+                <a href="https://www.facebook.com/profile.php?id=61587247695396" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white hover:bg-black/50">
                   {fbIcon}
                 </a>
-                <a href="#" aria-label="YouTube" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white hover:bg-black/50">
+                <a href="https://youtube.com/@qculand?si=JQiyl5_Yf4BO1JVN" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white hover:bg-black/50">
                   {ytIcon}
                 </a>
-                <a href="#" aria-label="Instagram" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white hover:bg-black/50">
+                <a href="https://www.instagram.com/qculand.cyber/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/40 text-white hover:bg-black/50">
                   {igIcon}
                 </a>
                 {/* Keep only FB, IG, YouTube; removed X/Twitter and TikTok */}
@@ -87,14 +87,4 @@ const igIcon = (
   </svg>
 )
 
-const xIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="currentColor">
-    <path d="M18.244 3H21l-6.54 7.47L22 21h-5.5l-4.3-5.53L6.18 21H3.42l6.99-7.98L2 3h5.6l3.9 5.19L18.244 3Zm-1.93 16.2h1.53L7.78 4.67H6.16l10.153 14.53Z" />
-  </svg>
-)
-
-const ttIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="currentColor">
-    <path d="M16 2c1.2 1.4 2.7 2.4 4.5 2.6v3.1c-1.6-.1-3-.6-4.5-1.4v6.8c0 3.9-3.1 7-7 7-2 0-3.8-.8-5.1-2.2C2.6 16.5 4.7 12.6 8.2 12.2v3.2c-1.4.2-2.5 1.5-2.3 3 .2 1.3 1.4 2.3 2.8 2.3 2 0 3.6-1.6 3.6-3.6V2h3.7Z" />
-  </svg>
-)
+// Removed unused icons (X/Twitter, TikTok)
