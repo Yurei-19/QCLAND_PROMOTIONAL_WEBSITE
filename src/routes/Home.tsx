@@ -1,7 +1,6 @@
 "use client"
 import { Hero } from '../components/Hero'
 import { SectionHeading } from '../components/SectionHeading'
-import { CarouselPlaceholder } from '../components/CarouselPlaceholder'
 import { ChapterOneCarousel } from '../components/ChapterOneCarousel'
 import { CharacterCarousel } from '../components/CharacterCarousel'
 import { GameSynopsisSection } from '../components/GameSynopsisSection'
@@ -10,7 +9,7 @@ import { useState } from 'react'
 export default function Home() {
   const [mapOpen, setMapOpen] = useState(false)
   return (
-    <main className="relative">
+    <main className="relative overflow-x-hidden">
       <Hero />
 
       <GameSynopsisSection />
@@ -38,7 +37,7 @@ export default function Home() {
                 const cleaned = p.replace(/^\//,'').replace(/\s/g, '%20')
                 return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
               }
-              return `url(${withBase('/V4 Map.png')})`
+              return `url(${withBase('/V4Map.png')})`
             })(),
             backgroundSize: 'cover',
             backgroundPosition: 'center',
@@ -79,7 +78,7 @@ export default function Home() {
                   const cleaned = p.replace(/^\//,'').replace(/\s/g, '%20')
                   return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
                 }
-                return withBase('/V4 Map.png')
+                return withBase('/V4Map.png')
               })()}
               alt="QCU Land full map"
               className="w-full rounded-xl object-contain"

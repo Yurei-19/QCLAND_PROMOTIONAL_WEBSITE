@@ -18,7 +18,7 @@ export function Navbar() {
                 const cleaned = p.replace(/^\//,'').split('/').map(encodeURIComponent).join('/')
                 return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
               }
-              return withBase('/Q BEE (Yellow).png')
+              return withBase('/QBEE(Yellow).png')
             })()}
             alt="QCUland"
             className="absolute inset-0 m-auto h-12 w-auto object-contain transition-opacity duration-300 opacity-100 dark:opacity-0"
@@ -31,7 +31,7 @@ export function Navbar() {
                 const cleaned = p.replace(/^\//,'').split('/').map(encodeURIComponent).join('/')
                 return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
               }
-              return withBase('/Q BEE (Blue).png')
+              return withBase('/QBEE(Blue).png')
             })()}
             alt="QCUland dark"
             className="absolute inset-0 m-auto h-12 w-auto object-contain transition-opacity duration-300 opacity-0 dark:opacity-100"

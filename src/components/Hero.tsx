@@ -25,7 +25,7 @@ export function Hero() {
       <div className="container-responsive flex flex-col gap-12 max-w-4xl" style={{marginTop:'110px'}}>
         <div className="relative" style={{minHeight:'320px'}}>
           {/* Brand logos (light/dark) */}
-          <div className="relative h-40 w-[340px]">
+          <div className="relative h-40 w-full max-w-[340px]">
             <img
               src={(() => {
                 const base = (import.meta as any).env?.BASE_URL || '/'
@@ -42,7 +42,7 @@ export function Hero() {
                   const cleaned = p.replace(/^\//,'').split('/').map(encodeURIComponent).join('/')
                   return `${(base.endsWith('/') ? base : base + '/')}${cleaned}`
                 }
-                return withBase('/QCULand BEE (Blue).png');
+                return withBase('/QCULandBEE(Blue).png');
               })()}
               alt="QCUland dark"
               className="absolute inset-0 m-auto h-40 w-auto object-contain transition-opacity duration-300 opacity-0 dark:opacity-100"

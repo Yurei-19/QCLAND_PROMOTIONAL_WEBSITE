@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 
 export function Footer() {
   const year = new Date().getFullYear()
+
   return (
     <footer className="mt-20 bg-[#0B3A4B] text-slate-200">
       <div className="container-responsive px-4 py-10">
@@ -31,7 +32,7 @@ export function Footer() {
             <div>
               <p className="text-sm font-semibold text-[var(--color-primary)] md:text-right">Quick Links</p>
               <ul className="mt-4 space-y-3 text-sm md:text-right">
-                <li><Link to="/" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>About</Link></li>
+                <li><Link to="/about" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>About</Link></li>
                 <li><Link to="/gameplay" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>Gameplay</Link></li>
                 <li><Link to="/news" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>News</Link></li>
                 <li><Link to="/team" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>Team</Link></li>
@@ -59,9 +60,9 @@ export function Footer() {
         <div className="mt-10 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-6 text-xs text-slate-300/80 sm:flex-row">
           <p>© {year} QCULAND TEAM. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">Support</a>
+            <Link to="/privacy" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>Terms of Service</Link>
+            <Link to="/support" className="hover:text-white" onClick={() => window.scrollTo({ top: 0, behavior: 'auto' })}>Support</Link>
           </div>
         </div>
       </div>

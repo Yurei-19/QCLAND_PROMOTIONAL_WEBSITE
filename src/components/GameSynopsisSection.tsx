@@ -79,70 +79,79 @@ export function GameSynopsisSection() {
 
       {/* Carousel */}
       <div className="relative -mt-4">
-        <div className="relative mx-auto h-72 sm:h-80 md:h-96">
-          <div className="absolute inset-0 flex items-center justify-center">
-          {slides.map((s, i) => {
-            const offset = i - index
-            const abs = Math.abs(offset)
-            const translateX = offset * 160
-            const scale = 1 - abs * 0.12
-            const zIndex = 50 - abs
-            const opacity = abs === 0 ? 1 : 0.6
-            return (
-              <div
-                key={s.title + i}
-                className="absolute top-1/9 h-56 w-56 -translate-y-1/2 overflow-hidden rounded-xl border transition-all duration-500 sm:h-60 sm:w-60 md:h-64 md:w-64"
-                style={{
-                  transform: `translateX(${translateX}px) scale(${scale})`,
-                  zIndex,
-                  opacity,
-                  boxShadow: abs === 0 ? '0 12px 30px -6px rgba(0,0,0,0.35)' : '0 4px 18px -4px rgba(0,0,0,0.25)',
-                  borderColor: abs === 0 ? 'var(--color-primary)' : 'rgba(255,255,255,0.18)'
-                }}
-              >
-                <img
-                  src={s.img}
-                  alt={s.title}
-                  className="h-full w-full object-cover"
-                  loading={i === 0 ? 'eager' : 'lazy'}
-                  onError={(e) => {
-                    // fallback path chain so broken files don't render empty
-                    (e.currentTarget as HTMLImageElement).src = '/qcu/placeholder.png'
+        <div className="relative mx-auto mb-8 overflow-hidden">
+          <div className="relative mx-auto flex h-[340px] items-center justify-center perspective-1000 sm:h-[380px] md:h-[440px]">
+            {slides.map((s, i) => {
+              const offset = i - index
+              const abs = Math.abs(offset)
+              const translateX = offset * 180
+              const rotateY = offset * -25
+              const scale = 1 - abs * 0.18
+              const zIndex = 50 - abs
+              const opacity = abs === 0 ? 1 : 0
+
+              return (
+                <div
+                  key={s.title + i}
+                  className="absolute top-1/5 h-72 w-72 -translate-y-1/2 overflow-hidden rounded-xl border transition-all duration-500 will-change-transform sm:h-80 sm:w-80 md:h-96 md:w-[26rem]"
+                  style={{
+                    transform: `translateX(${translateX}px) scale(${scale}) rotateY(${rotateY}deg)`,
+                    zIndex,
+                    opacity,
+                    boxShadow: offset === 0 ? '0 12px 30px -6px rgba(0,0,0,0.35)' : '0 4px 18px -4px rgba(0,0,0,0.25)',
+                    borderColor: offset === 0 ? 'var(--color-primary)' : 'rgba(255,255,255,0.18)'
                   }}
-                />
-                {abs !== 0 && (
-                  <button onClick={() => setIndex(i)} aria-label={`Activate slide ${i + 1}`} className="absolute inset-0" />
-                )}
-              </div>
-            )
-          })}
+                >
+                  <img
+                    src={s.img}
+                    alt={s.title}
+                    className="h-full w-full object-cover"
+                    loading={i === 0 ? 'eager' : 'lazy'}
+                    onError={(e) => {
+                      ;(e.currentTarget as HTMLImageElement).src = '/qcu/placeholder.png'
+                    }}
+                  />
+
+                  {offset !== 0 && (
+                    <button
+                      onClick={() => setIndex(i)}
+                      aria-label={`Activate slide ${i + 1}`}
+                      className="absolute inset-0 bg-black/0"
+                    />
+                  )}
+                </div>
+              )
+            })}
           </div>
-          {/* Pagination dots positioned outside stage to avoid layout shift */}
-          <div className="absolute left-1/2 bottom-0 translate-y-full -translate-x-1/2 mt-4 flex justify-center gap-2">
-            {slides.map((_, i) => (
-              <button
-                key={i}
-                aria-label={`Go to slide ${i + 1}`}
-                onClick={() => setIndex(i)}
-                className={`h-2.5 w-2.5 rounded-full transition-colors ${i === index ? 'bg-[var(--color-primary)]' : 'bg-slate-400 dark:bg-slate-600'}`}
-              />
-            ))}
-          </div>
+
+          <button
+            aria-label="Previous slide"
+            onClick={prev}
+            className="absolute left-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/80 p-2 text-slate-800 shadow hover:bg-white dark:bg-black/60 dark:text-white"
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Next slide"
+            onClick={next}
+            className="absolute right-2 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/80 p-2 text-slate-800 shadow hover:bg-white dark:bg-black/60 dark:text-white"
+          >
+            ›
+          </button>
         </div>
-        <button
-          aria-label="Previous slide"
-          onClick={prev}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-slate-800 shadow hover:bg-white dark:bg-black/60 dark:text-white"
-        >
-          ‹
-        </button>
-        <button
-          aria-label="Next slide"
-          onClick={next}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-slate-800 shadow hover:bg-white dark:bg-black/60 dark:text-white"
-        >
-          ›
-        </button>
+
+        <div className="mt-4 flex justify-center gap-2">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Go to slide ${i + 1}`}
+              onClick={() => setIndex(i)}
+              className={`h-2.5 w-2.5 rounded-full transition-colors ${
+                i === index ? 'bg-[var(--color-primary)]' : 'bg-slate-400 dark:bg-slate-600'
+              }`}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Synced text container */}

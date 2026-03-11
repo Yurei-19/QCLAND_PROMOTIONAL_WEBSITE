@@ -54,7 +54,7 @@ export function ChapterOneCarousel() {
       </div>
 
       {/* Developer comment: 3D coverflow wrapper with perspective */}
-      <div className="relative mb-12">
+      <div className="relative mb-12 overflow-hidden">
         <div className="relative mx-auto flex h-[400px] items-center justify-center perspective-1000 sm:h-[440px]">
           {slides.map((s, i) => {
             const offset = i - index // Developer comment: negative left of center, positive right.

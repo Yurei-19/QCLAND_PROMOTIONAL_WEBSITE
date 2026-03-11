@@ -13,6 +13,10 @@ import NewsShow from './routes/NewsShow'
 import Team from './routes/Team'
 import ModelViewer from './routes/ModelViewer'
 import Maintenance from './routes/Maintenance'
+import About from './routes/About'
+import Support from './routes/Support'
+import TermsOfService from './routes/TermsOfService'
+import PrivacyPolicy from './routes/PrivacyPolicy'
 
 export function AppShell() {
   const isBrowser = typeof document !== 'undefined'
@@ -25,6 +29,7 @@ export function AppShell() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
           <Route path="/gameplay" element={<Gameplay />} />
           <Route path="/news" element={<NewsIndex />} />
           <Route path="/news/:slug" element={<NewsShow />} />
@@ -32,6 +37,9 @@ export function AppShell() {
           <Route path="/modelviewer" element={<ModelViewer />} />
           {/* redirect play triggers to maintenance page */}
           <Route path="/maintenance" element={<Maintenance />} />
+          <Route path="/support" element={<Support />} />
+          <Route path="/terms" element={<TermsOfService />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
       </div>
